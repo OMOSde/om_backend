@@ -1,0 +1,151 @@
+<?php
+
+/**
+ * Contao module om_backend
+ * 
+ * @copyright OMOS.de 2014 <http://www.omos.de>
+ * @author    René Fehrmann <rene.fehrmann@omos.de>
+ * @package   om_backend
+ * @link      http://www.omos.de
+ * @license   LGPL
+ */
+
+ 
+/**
+ * Namespace
+ */
+namespace om_backend;
+
+
+/**
+ * Class OmBackendHooks
+ */
+class OmBackendHooks extends \Backend
+{
+  /**
+   * HOOK: getContentElement
+   */
+  public function myGetContentElement($objElement, $strBuffer)
+  {
+      return $strBuffer;
+  }
+  
+  
+  /**
+   * HOOK: myOutputBackendTemplate
+   */
+  public function myOutputBackendTemplate($strContent, $strTemplate)
+  {
+    if ($strTemplate == 'be_main')
+    {
+      $this->import('BackendUser', 'User');
+      
+      // small backend in user setting activated?
+      if ($this->User->om_small)
+      {
+        // activate through new css class
+        $strContent = str_replace('<body id="top" class="', '<body id="top" class="om_backend ', $strContent);          
+      }
+      
+      // toolbar in user settings activated?
+      if ($this->User->isAdmin && $this->User->om_toolbar)
+      {
+        // add new css class to body
+        $strContent = str_replace('<body id="top" class="', '<body id="top" class="om_toolbar ', $strContent);
+        
+        // insert toolbar html 
+        $strContent = str_replace('<div id="container">', '<div id="container">' . $this->generateToolbar(), $strContent);
+      }        
+        
+      
+      // check table, prevent error since installation
+      $objCheck = $this->Database->prepare("SHOW TABLES LIKE 'tl_om_backend_links'")->execute();
+      if ($objCheck->numRows == 1) {
+        // add backend links
+        $strContent = str_replace('<ul class="tl_level_1">', '<ul class="tl_level_1">' . $this->generateBackendLinks(), $strContent);
+      }
+    }
+ 
+    return $strContent;
+  }  
+  
+  
+  /**
+   * Generate the html for the toolbar
+   */
+  protected function generateToolbar()
+  {
+    // get themes
+    $objThemes = \ThemeModel::findAll(array('order'=>'name'));
+    
+    // open container
+    $strToolbar  = '<div id="toolbar"><h1>Tools</h1>';
+    
+    // add button - id search
+    //$strToolbar .= '<a class="button" href="contao/main.php?do=id_search" title="'.$GLOBALS['TL_LANG']['om_backend']['id_search'].'"><img class="pngfix" src="system/modules/om_backend/html/find.png" width="16" height="16" alt="'.$GLOBALS['TL_LANG']['om_backend']['id_search'].'" onclick="Backend.getScrollOffset();Backend.openModalSelector({\'width\':765,\'title\':\'ID-Suche\',\'url\':this.href});return false"></a>';
+    $strToolbar .= '<a class="button" href="contao/main.php?do=id_search" title="'.$GLOBALS['TL_LANG']['om_backend']['id_search'].'"><img class="pngfix" src="system/modules/om_backend/html/find.png" width="16" height="16" alt="'.$GLOBALS['TL_LANG']['om_backend']['id_search'].'"></a>';    
+    
+    // add button - update database
+    $strToolbar .= '<a class="button" href="contao/main.php?do=repository_manager&amp;update=database" title="'.$GLOBALS['TL_LANG']['om_backend']['update_database'].'"><img class="pngfix" src="system/modules/repository/themes/default/images/dbcheck16.png" width="16" height="16" alt="'.$GLOBALS['TL_LANG']['om_backend']['update_database'].'"></a>';
+    
+    // add button - new template
+    $strToolbar .= '<a class="button" href="contao/main.php?do=tpl_editor&key=new_tpl&rt=' . $_SESSION['REQUEST_TOKEN'] .'" title="'.$GLOBALS['TL_LANG']['om_backend']['new_template'].'"><img class="pngfix" src="system/modules/om_backend/assets/icons/page_add.png" width="16" height="16" alt="'.$GLOBALS['TL_LANG']['om_backend']['new_template'].'"></a>';
+    
+    // add button - sync 
+    $strToolbar .= '<a class="button" href="contao/main.php?do=files&amp;act=sync&amp;rt=' . $_SESSION['REQUEST_TOKEN'] .'" title="'.$GLOBALS['TL_LANG']['om_backend']['sync_files'].'"><img class="pngfix" src="system/themes/default/images/sync.gif" width="16" height="16" alt="'.$GLOBALS['TL_LANG']['om_backend']['sync_files'].'"></a>';
+    
+    // exist a theme?
+    if (is_object($objThemes) && $objThemes->count() > 0)
+    {
+      // add css, modules and layouts
+      while ($objThemes->next())
+      {
+        // add separator
+        $strToolbar .= '<div class="separator"></div>';    
+      
+        // add buttons
+        $strToolbar .= '<a class="button" href="contao/main.php?do=themes&amp;table=tl_style_sheet&amp;id=' . $objThemes->id . '&amp;rt=' . $_SESSION['REQUEST_TOKEN'] .'" title="'.sprintf($GLOBALS['TL_LANG']['om_backend']['stylesheets'], $objThemes->name).'"><img src="system/themes/default/images/css.gif" width="17" height="16" alt="Stylesheets"></a>';
+        $strToolbar .= '<a class="button" href="contao/main.php?do=themes&amp;table=tl_module&amp;id=' . $objThemes->id . '&amp;rt=' . $_SESSION['REQUEST_TOKEN'] .'" title="'.sprintf($GLOBALS['TL_LANG']['om_backend']['modules'], $objThemes->name).'"><img src="system/themes/default/images/modules.gif" width="16" height="16" alt="Module"></a>';
+        $strToolbar .= '<a class="button" href="contao/main.php?do=themes&amp;table=tl_layout&amp;id=' . $objThemes->id . '&amp;rt=' . $_SESSION['REQUEST_TOKEN'] .'" title="'.sprintf($GLOBALS['TL_LANG']['om_backend']['layouts'], $objThemes->name).'"><img src="system/themes/default/images/layout.gif" width="14" height="16" alt="Seitenlayouts"></a>';
+      }
+    }    
+        
+    // close container
+    $strToolbar .= '</div>';
+    
+    return $strToolbar;
+  }
+
+
+  /**
+   * Generate backend links
+   * 
+   * @return string;
+   */
+  protected function generateBackendLinks()
+  {
+    // get all links
+    $objLinks = $this->Database->prepare("SELECT * FROM tl_om_backend_links WHERE language=? AND published=1")->execute($this->User->language);
+    while ($objLinks->next())
+    {
+      $arrGroups[$objLinks->be_group][$objLinks->title] = $objLinks->url; 
+    }
+    
+    if (is_array($arrGroups))
+    {
+      $strReturn = '';
+      foreach ($arrGroups as $groupName => $group) 
+      {
+        $strReturn .= '<li class="tl_level_1_group"><a href="contao/main.php?do=repository_manager&amp;mtg='.$groupName.'" title="" onclick="return AjaxRequest.toggleNavigation(this,\''.$groupName.'\')"><img src="system/themes/default/images/modMinus.gif" width="16" height="16" alt="">'.$groupName.'</a></li>';
+        $strReturn .= '<li class="tl_parent" id="'.$groupName.'" style="display: inline;"><ul class="tl_level_2">';
+        foreach ($group as $linkTitle => $link)
+        {
+          $strReturn .= '<li><a href="'.$link.'&amp;rt=' . $_SESSION['REQUEST_TOKEN'] . '" class="navigation themes" title="">'.$linkTitle.'</a></li>';
+        }
+        $strReturn .= '</ul></li>';
+      }
+    }
+    
+    return $strReturn; 
+  }
+}

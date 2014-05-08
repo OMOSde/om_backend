@@ -1,0 +1,86 @@
+/**
+ * Contao module om_backend
+ * 
+ * @copyright OMOS.de 2014 <http://www.omos.de>
+ * @author    René Fehrmann <rene.fehrmann@omos.de>
+ * @package   om_backend
+ * @link      http://www.omos.de
+ * @license   LGPL
+ */
+
+
+/***** Small backend *****/
+
+body.om_backend .tl_content {
+  position:relative;
+  width:693px;
+}
+body.om_backend .tl_content .cte_type,
+body.om_backend .tl_content .limit_height {
+  margin:0 0 0 24px;
+}
+body.om_backend .tl_content h1 {
+  margin:0 0 2px;
+}
+body.om_backend .tl_content .limit_toggler {
+  position:absolute;
+  top:0;
+  left:0;
+  margin-top:5px;
+}
+body.om_backend .cte_type {
+  margin-bottom:2px;
+}
+
+
+/***** Toolbar *****/
+
+body.om_toolbar #container {
+  position:relative;
+}
+body.om_toolbar #toolbar {
+  position:absolute;
+  top:0;
+  right:-67px;
+  width:55px;
+  margin: 0 auto;
+  text-align: left;
+  background: #fff;
+  border: 1px solid #bbb;
+  border-radius: 3px;
+  box-shadow: 0 3px 6px #ccc;
+}
+body.om_toolbar #toolbar h1 { 
+  margin: 1px 1px 8px;
+  padding: 4px 8px 6px;
+  background: #b3b6b3 url("../../system/themes/default/images/headline.gif") repeat-x;
+  color: #fff;
+  border-radius: 3px 3px 0 0;
+}
+body.om_toolbar #toolbar .button {
+  display:block;
+  margin:8px;
+  padding: 5px 11px;
+  border: 1px solid #b8b8b8;
+  border-radius: 3px;
+  color: #666966;
+  cursor: pointer;
+  line-height: 1;
+  text-shadow: 1px 1px 0 #eee;
+  background: #eee;
+  background-image: -moz-linear-gradient(bottom,#ccc 0,#eee 60%);
+  background-image: -webkit-linear-gradient(bottom,#ccc 0,#eee 60%);
+  background-image: -o-linear-gradient(bottom,#ccc 0,#eee 60%);
+  background-image: -ms-linear-gradient(bottom,#ccc 0,#eee 60%);
+  background-image: linear-gradient(bottom,#ccc 0,#eee 60%);
+}
+body.om_toolbar #toolbar .button img {
+  
+}
+body.om_toolbar #toolbar .button:hover {
+  box-shadow: 0 0 3px #aaa;
+}
+body.om_toolbar #toolbar .separator {
+  margin:10px 0;
+  border-bottom: 1px solid #bbb;
+}

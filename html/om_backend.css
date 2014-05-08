@@ -1,0 +1,23 @@
+/**
+ *   Cascading Style Sheet
+ *   Modul: om_backend
+ */
+body.om_backend .tl_content {
+  position:relative;
+  padding:2px 6px 2px 30px;
+  width:648px;
+}
+body.om_backend .tl_content h1 {
+  margin:0 0 2px;
+}
+body.om_backend .tl_content .limit_toggler {
+  position:absolute;
+  top:0;
+  left:0;
+  margin-top:5px;
+}
+
+
+body.om_backend .cte_type {
+  margin-bottom:2px;
+}

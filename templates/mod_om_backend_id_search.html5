@@ -1,0 +1,31 @@
+
+<div class="mod_om_backend_id_search">
+  <div id="tl_buttons">
+    <a href="<?php echo $_SERVER['HTTP_REFERER']; ?>" class="header_back" title="" accesskey="b" onclick="Backend.getScrollOffset()"><?php echo $GLOBALS['TL_LANG']['MSC']['backBT']; ?></a>
+  </div>
+  <h2 class="sub_headline"><?php echo $GLOBALS['TL_LANG']['om_backend']['search_headline']; ?></h2>
+  <?php if ($this->error): ?>
+    <div class="tl_message">
+      <p class="tl_error"><?php echo $this->error; ?></p>
+    </div>
+  <?php endif; ?>
+  
+  <form action="" method="post" class="tl_form">
+    <div class="tl_formbody_edit" style="padding-bottom:26px;">      
+      <input type="hidden" name="FORM_SUBMIT" value="om_backend_id_search">
+      <input type="hidden" name="REQUEST_TOKEN" value="<?php echo REQUEST_TOKEN; ?>">
+      <h3><?php echo $GLOBALS['TL_LANG']['om_backend']['search_title']; ?></h3>
+      <input type="text" name="id" class="id" value="<?php echo $this->id; ?>">
+      <select style="width:140px;" name="option" class="option tl_select">
+        <?php foreach ($this->search_options as $key => $option): ?>
+          <option value="<?php echo $key; ?>"<?php if ($this->option == $key) echo ' selected'; ?>><?php echo $this->search_options[$key]; ?></option>
+        <?php endforeach; ?>
+      </select>
+    </div>
+    <div class="tl_formbody_submit">    
+      <div class="tl_submit_container">
+      <input type="submit" class="tl_submit" value="<?php echo $GLOBALS['TL_LANG']['om_backend']['search_submit']; ?>"> 
+      </div>    
+    </div>    
+  </form>
+</div>
