@@ -40,5 +40,5 @@ Getting support
 Visit the [project website][1] to learn about the available support options.
 
 
-[1]: http://http://www.omos.de/om-backend.html
+[1]: http://www.omos.de/om-backend.html
 [2]: http://www.gnu.org/licenses/lgpl-3.0.de.html
