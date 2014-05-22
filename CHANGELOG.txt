@@ -2,6 +2,11 @@
 Modul OM-Backend Changelog
 =================================
 
+Version 1.0.4 stable (2014-04-07)
+---------------------------------
+- Added: merge module 'om_filefilter' (a simple js-filter for the file manager) into 'om_backend'
+
+
 Version 1.0.3 stable (2014-04-07)
 ---------------------------------
 - Added: feature backend links
