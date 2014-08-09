@@ -21,7 +21,7 @@ namespace om_backend;
  * Class OmBackendHooks
  */
 class OmBackendHooks extends \Backend
-{
+{  
   /**
    * HOOK: getContentElement
    */
@@ -36,6 +36,7 @@ class OmBackendHooks extends \Backend
    */
   public function myOutputBackendTemplate($strContent, $strTemplate)
   {
+    // change backend template
     if ($strTemplate == 'be_main')
     {
       $this->import('BackendUser', 'User');
@@ -54,7 +55,7 @@ class OmBackendHooks extends \Backend
         $strContent = str_replace('<body id="top" class="', '<body id="top" class="om_toolbar ', $strContent);
         
         // insert toolbar html 
-        $strContent = str_replace('<div id="container">', '<div id="container">' . $this->generateToolbar(), $strContent);
+        $strContent = str_replace('<div id="container">', '<div id="container">' . $this->generateToolbar($strContent), $strContent);
       }        
         
       
@@ -73,7 +74,7 @@ class OmBackendHooks extends \Backend
   /**
    * Generate the html for the toolbar
    */
-  protected function generateToolbar()
+  protected function generateToolbar(string $strContent)
   {
     // get themes
     $objThemes = \ThemeModel::findAll(array('order'=>'name'));
@@ -107,6 +108,47 @@ class OmBackendHooks extends \Backend
         $strToolbar .= '<a class="button" href="contao/main.php?do=themes&amp;table=tl_style_sheet&amp;id=' . $objThemes->id . '&amp;rt=' . $_SESSION['REQUEST_TOKEN'] .'" title="'.sprintf($GLOBALS['TL_LANG']['om_backend']['stylesheets'], $objThemes->name).'"><img src="system/themes/default/images/css.gif" width="17" height="16" alt="Stylesheets"></a>';
         $strToolbar .= '<a class="button" href="contao/main.php?do=themes&amp;table=tl_module&amp;id=' . $objThemes->id . '&amp;rt=' . $_SESSION['REQUEST_TOKEN'] .'" title="'.sprintf($GLOBALS['TL_LANG']['om_backend']['modules'], $objThemes->name).'"><img src="system/themes/default/images/modules.gif" width="16" height="16" alt="Module"></a>';
         $strToolbar .= '<a class="button" href="contao/main.php?do=themes&amp;table=tl_layout&amp;id=' . $objThemes->id . '&amp;rt=' . $_SESSION['REQUEST_TOKEN'] .'" title="'.sprintf($GLOBALS['TL_LANG']['om_backend']['layouts'], $objThemes->name).'"><img src="system/themes/default/images/layout.gif" width="14" height="16" alt="Seitenlayouts"></a>';
+      }
+    }
+    
+    // generate save buttons
+    if (strpos($strContent, 'class="tl_submit_container"') !== false)
+    {
+      // button save
+      if (strpos($strContent, 'name="save"') !== FALSE)
+      {
+        $arrButtons[] = 'save';
+      }
+
+      // button save and close
+      if (strpos($strContent, 'name="saveNclose"') !== FALSE)
+      {
+        $arrButtons[] = 'saveNclose';
+      }
+      
+      // button save and create
+      if (strpos($strContent, 'name="saveNcreate"') !== FALSE)
+      {
+        $arrButtons[] = 'saveNcreate';
+      }
+      
+      // button save and create
+      if (strpos($strContent, 'name="saveNback"') !== FALSE)
+      {
+        $arrButtons[] = 'saveNback';
+      }
+      
+      // add alls buttons and separator
+      if (is_array($arrButtons))
+      {
+        // add separator
+        $strToolbar .= '<div class="separator"></div>';
+        
+        // add buttons    
+        foreach ($arrButtons as $button)
+        {
+          $strToolbar .= '<a class="button" onclick="document.getElementById(\''.$button.'\').click(); return false;" title="'.$GLOBALS['TL_LANG']['MSC'][$button].'"><img src="system/modules/om_backend/assets/icons/'.$button.'.png" width="14" height="16" alt="'.$GLOBALS['TL_LANG']['MSC'][$button].'"></a>';
+        }
       }
     }    
         
