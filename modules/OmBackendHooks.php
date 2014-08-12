@@ -21,7 +21,7 @@ namespace om_backend;
  * Class OmBackendHooks
  */
 class OmBackendHooks extends \Backend
-{  
+{
   /**
    * HOOK: getContentElement
    */
@@ -42,14 +42,14 @@ class OmBackendHooks extends \Backend
       $this->import('BackendUser', 'User');
       
       // small backend in user setting activated?
-      if ($this->User->om_small)
+      if ($this->User->om_small && !preg_match('/<body.*class=".*om_backend.*>/', $strContent))
       {
         // activate through new css class
         $strContent = str_replace('<body id="top" class="', '<body id="top" class="om_backend ', $strContent);          
       }
       
       // toolbar in user settings activated?
-      if ($this->User->isAdmin && $this->User->om_toolbar)
+      if ($this->User->isAdmin && $this->User->om_toolbar && !preg_match('/<body.*class=".*om_toolbar.*>/', $strContent))
       {
         // add new css class to body
         $strContent = str_replace('<body id="top" class="', '<body id="top" class="om_toolbar ', $strContent);
