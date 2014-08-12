@@ -74,7 +74,7 @@ class OmBackendHooks extends \Backend
   /**
    * Generate the html for the toolbar
    */
-  protected function generateToolbar(string $strContent)
+  protected function generateToolbar($strContent)
   {
     // get themes
     $objThemes = \ThemeModel::findAll(array('order'=>'name'));
