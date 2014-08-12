@@ -21,6 +21,16 @@ if (TL_MODE == 'BE')
 
 
 /**
+ * Adding javascript
+ */
+if (TL_MODE == 'BE')
+{
+  $GLOBALS['TL_JAVASCRIPT'][] = '//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js';
+  $GLOBALS['TL_JAVASCRIPT'][] = 'system/modules/om_backend/assets/js/om_backend.js';
+}
+
+
+/**
  * Backend modules
  */
 $GLOBALS['BE_MOD']['om_backend']['id_search'] = array (
