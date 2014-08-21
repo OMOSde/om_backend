@@ -2,7 +2,7 @@
 Modul OM-Backend Changelog
 =================================
 
-Version 1.0.6 stable (2014-??-??)
+Version 1.0.6 stable (2014-08-21)
 ---------------------------------
 - Added: new feature 'sysinfo'
 - Added: toolbar and left navigation has now fixed positions
