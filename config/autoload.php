@@ -2,9 +2,9 @@
 
 /**
  * Contao Open Source CMS
- * 
- * Copyright (C) 2005-2013 Leo Feyer
- * 
+ *
+ * Copyright (c) 2005-2014 Leo Feyer
+ *
  * @package Om_backend
  * @link    https://contao.org
  * @license http://www.gnu.org/licenses/lgpl-3.0.html LGPL
@@ -26,8 +26,8 @@ ClassLoader::addNamespaces(array
 ClassLoader::addClasses(array
 (
 	// Modules
-	'om_backend\OmBackendIdSearch' => 'system/modules/om_backend/modules/OmBackendIdSearch.php',
 	'om_backend\OmBackendHooks'    => 'system/modules/om_backend/modules/OmBackendHooks.php',
+	'om_backend\OmBackendIdSearch' => 'system/modules/om_backend/modules/OmBackendIdSearch.php',
 ));
 
 

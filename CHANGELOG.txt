@@ -4,6 +4,7 @@ Modul OM-Backend Changelog
 
 Version 1.0.6 stable (2014-??-??)
 ---------------------------------
+- Added: new feature 'sysinfo'
 - Added: toolbar and left navigation has now fixed positions
 - Fixed: prevent multiple adding classes and toolbars
 - Fixed: a namespace problem in function generateToolbar()

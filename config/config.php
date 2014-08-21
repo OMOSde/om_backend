@@ -41,6 +41,10 @@ $GLOBALS['BE_MOD']['om_backend']['be_links'] = array (
   'tables'     => array('tl_om_backend_links'),
   'icon'       => 'system/modules/om_backend/html/be_links.png'    
 );
+$GLOBALS['BE_MOD']['om_backend']['sysinfo'] = array (
+  'tables'     => array('tl_om_backend_sysinfo'),
+  'icon'       => 'system/modules/om_backend/assets/icons/sysinfo.png'    
+);
 
 
 /**

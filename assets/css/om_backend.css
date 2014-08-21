@@ -84,3 +84,19 @@ body.om_toolbar #toolbar .separator {
   margin:10px 0;
   border-bottom: 1px solid #bbb;
 }
+
+
+/***** sysinfo *****/
+
+.tl_file_list .low {
+  padding:2px 0 0 20px;
+  background:url('../icons/arrow_low.png') no-repeat;
+}
+.tl_file_list .middle {
+  padding:2px 0 0 20px;
+  background:url('../icons/arrow_middle.png') no-repeat;
+}
+.tl_file_list .high {
+  padding:2px 0 0 20px;
+  background:url('../icons/arrow_high.png') no-repeat;
+}
