@@ -13,7 +13,7 @@
 
 body.om_backend .tl_content {
   position:relative;
-  width:693px;
+  width:auto;
 }
 body.om_backend .tl_content .cte_type,
 body.om_backend .tl_content .limit_height {
