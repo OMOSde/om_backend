@@ -5,6 +5,7 @@ Modul OM-Backend Changelog
 Version 1.0.7 stable (2015-03-13)
 ---------------------------------
 - Removed: fixed toolbars removed because javascript problems
+- Fixed  : width problem through flexibel backend layout in Contao 3.3+
 
 
 Version 1.0.6 stable (2014-08-21)
