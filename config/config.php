@@ -12,11 +12,12 @@
 
 
 /**
- * CSS
+ * CSS & Javascripts
  */
 if (TL_MODE == 'BE')
 {
   $GLOBALS['TL_CSS'][] = 'system/modules/om_backend/assets/css/om_backend.css';
+  $GLOBALS['TL_JAVASCRIPT'][] = 'system/modules/om_backend/assets/js/om_backend.js';
 }
 
 

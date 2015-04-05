@@ -42,13 +42,16 @@ body.om_toolbar #toolbar {
   position:absolute;
   top:0;
   right:-67px;
-  width:55px;
-  margin: 0 auto;
+  width:55px;  
   text-align: left;
   background: #fff;
   border: 1px solid #bbb;
   border-radius: 3px;
   box-shadow: 0 3px 6px #ccc;
+}
+body.om_toolbar #toolbar.fixed {
+    position:fixed;
+    top:0;
 }
 body.om_toolbar #toolbar h1 { 
   margin: 1px 1px 8px;

@@ -1,15 +1,24 @@
-// do when DOM is loaded
-window.addEvent('domready', function() {
-  
-  // set no conflict mode
-  $.noConflict();
 
-  // do on window scroll  
-  jQuery(window).scroll(function()
-  {
-    diff = (jQuery(window).scrollTop() - jQuery('#container').position().top) > 0 ? jQuery(window).scrollTop() - jQuery('#container').position().top : 0;
-
-    jQuery('#toolbar').css('top', diff+'px');
-    jQuery('#left').css('margin-top', diff+'px');
-  });
+window.addEvent('scroll', function(){
+    calculateFixedToolbar();    
 });
+window.addEvent('resize', function(){
+    calculateFixedToolbar();
+});
+
+
+function calculateFixedToolbar()
+{
+    // calculate fixed toolbar position
+    pos = ($$('html').getSize()[0].x - $$('div#container').getSize()[0].x) / 2 + $$('div#container').getSize()[0].x + 10;    
+    
+    // fixed ??        
+    if (window.getScroll().y >= $$('div#container').getPosition()[0].y)
+    {
+        $$('div#toolbar').addClass('fixed');
+        $$('div#toolbar').setStyle('left', pos + 'px');
+    } else {
+        $$('div#toolbar').removeClass('fixed');
+        $$('div#toolbar').setStyle('left', 'auto');
+    }    
+}
