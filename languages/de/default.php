@@ -21,6 +21,7 @@ $GLOBALS['TL_LANG']['om_backend']['sync_files']      = 'Dateisystem & Datenbank 
 $GLOBALS['TL_LANG']['om_backend']['stylesheets']     = 'Stylesheets Theme \'%s\' bearbeiten';
 $GLOBALS['TL_LANG']['om_backend']['modules']         = 'Frontend-Module Theme \'%s\' bearbeiten';
 $GLOBALS['TL_LANG']['om_backend']['layouts']         = 'Seitenlayouts Theme \'%s\' bearbeiten';
+$GLOBALS['TL_LANG']['om_backend']['image_size']      = 'Bildgrößen Theme \'%s\' bearbeiten';
 
 
 /**

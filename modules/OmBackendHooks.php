@@ -108,9 +108,13 @@ class OmBackendHooks extends \Backend
         $strToolbar .= '<a class="button" href="contao/main.php?do=themes&amp;table=tl_style_sheet&amp;id=' . $objThemes->id . '&amp;rt=' . $_SESSION['REQUEST_TOKEN'] .'" title="'.sprintf($GLOBALS['TL_LANG']['om_backend']['stylesheets'], $objThemes->name).'"><img src="system/themes/default/images/css.gif" width="17" height="16" alt="Stylesheets"></a>';
         $strToolbar .= '<a class="button" href="contao/main.php?do=themes&amp;table=tl_module&amp;id=' . $objThemes->id . '&amp;rt=' . $_SESSION['REQUEST_TOKEN'] .'" title="'.sprintf($GLOBALS['TL_LANG']['om_backend']['modules'], $objThemes->name).'"><img src="system/themes/default/images/modules.gif" width="16" height="16" alt="Module"></a>';
         $strToolbar .= '<a class="button" href="contao/main.php?do=themes&amp;table=tl_layout&amp;id=' . $objThemes->id . '&amp;rt=' . $_SESSION['REQUEST_TOKEN'] .'" title="'.sprintf($GLOBALS['TL_LANG']['om_backend']['layouts'], $objThemes->name).'"><img src="system/themes/default/images/layout.gif" width="14" height="16" alt="Seitenlayouts"></a>';
+        
+        if(version_compare(VERSION.'.'.BUILD, '3.4.0', '>=')) 
+        { 
+          $strToolbar .= '<a class="button" href="contao/main.php?do=themes&amp;table=tl_image_size&amp;id=' . $objThemes->id . '&amp;rt=' . $_SESSION['REQUEST_TOKEN'] .'" title="'.sprintf($GLOBALS['TL_LANG']['om_backend']['image_size'], $objThemes->name).'"><img src="system/themes/default/images/sizes.gif" width="14" height="16" alt="Bildgrößen"></a>'; 
+        }
       }
     }
-    
     // generate save buttons
     if (strpos($strContent, 'class="tl_submit_container"') !== false)
     {
