@@ -132,7 +132,7 @@ class OmBackendHooks extends \Backend
         $arrButtons[] = 'saveNcreate';
       }
       
-      // button save and create
+      // button save and back
       if (strpos($strContent, 'name="saveNback"') !== FALSE)
       {
         $arrButtons[] = 'saveNback';
