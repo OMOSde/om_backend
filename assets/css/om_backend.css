@@ -103,3 +103,14 @@ body.om_toolbar #toolbar .separator {
   padding:2px 0 0 20px;
   background:url('../icons/arrow_high.png') no-repeat;
 }
+
+
+/***** id search *****/
+
+.mod_om_backend_id_search input.id {
+  margin:1px 0;
+  padding: 3px 3px;
+  width:80px;
+  border: 1px solid #aaa;
+  border-radius: 3px;
+}

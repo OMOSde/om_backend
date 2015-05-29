@@ -5,6 +5,7 @@ Modul OM-Backend Changelog
 Version 1.0.8 stable (2015-??-??)
 ---------------------------------
 - Added: button for image size in toolbar (contao 3.4+)
+- Fixed: incorrect css for input field in id search
 
 
 Version 1.0.7 stable (2015-03-13)
