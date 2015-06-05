@@ -115,6 +115,7 @@ class OmBackendHooks extends \Backend
         }
       }
     }
+
     // generate save buttons
     if (strpos($strContent, 'class="tl_submit_container"') !== false)
     {
@@ -154,8 +155,50 @@ class OmBackendHooks extends \Backend
           $strToolbar .= '<a class="button" onclick="document.getElementById(\''.$button.'\').click(); return false;" title="'.$GLOBALS['TL_LANG']['MSC'][$button].'"><img src="system/modules/om_backend/assets/icons/'.$button.'.png" width="14" height="16" alt="'.$GLOBALS['TL_LANG']['MSC'][$button].'"></a>';
         }
       }
-    }    
+    }
+
+    // edit multiple ?
+    if (strpos($strContent, 'class="header_edit_all"') !== false)
+    {
+        // get parameter
+        $id    = (strlen(\Input::get('id'))) ? '&amp;id'.\Input::get('id') : '';
+        $table = (strlen(\Input::get('table'))) ? '&amp;table='.\Input::get('table') : '';
         
+        // add separator and button
+        $strToolbar .= '<div class="separator"></div>';
+        $strToolbar .= '<a class="button" href="contao/main.php?do='.\Input::get('do').$table.$id.'&amp;act=select&amp;rt=' . $_SESSION['REQUEST_TOKEN'] .'" title="'.sprintf($GLOBALS['TL_LANG']['om_backend']['stylesheets'], $objThemes->name).'"><img src="system/themes/default/images/all.gif" width="17" height="16" alt="Stylesheets"></a>';
+    }
+    
+    // edit multiple buttons
+    if (strpos($strContent, 'class="tl_submit_container"') !== false)
+    {
+        // html button names
+        $arrButtonNames = array('delete', 'cut', 'copy', 'override', 'edit', 'alias');
+        
+        // check for buttons
+        foreach ($arrButtonNames as $buttonName)
+        {
+            // button save
+            if (strpos($strContent, 'name="'.$buttonName.'"') !== FALSE)
+            {
+                $arrButtons[] = $buttonName;
+            }
+        }
+              
+        // add alls buttons and separator
+        if (is_array($arrButtons))
+        {
+            // add separator
+            $strToolbar .= '<div class="separator"></div>';
+            
+            // add buttons    
+            foreach ($arrButtons as $button)
+            {
+                $strToolbar .= '<a class="button" onclick="document.getElementById(\''.$button.'\').click(); return false;" title="'.$GLOBALS['TL_LANG']['om_backend']['button_'.$button].'"><img src="system/modules/om_backend/assets/icons/folder_'.$button.'.png" width="14" height="16" alt="'.$GLOBALS['TL_LANG']['om_backend']['button_'.$button].'"></a>';
+            }
+        }
+    }
+            
     // close container
     $strToolbar .= '</div>';
     

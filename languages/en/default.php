@@ -30,3 +30,14 @@ $GLOBALS['TL_LANG']['om_backend']['search_title']    = 'ID-Search';
 $GLOBALS['TL_LANG']['om_backend']['search_submit']   = 'Start ID-Search';
 $GLOBALS['TL_LANG']['om_backend']['search_headline'] = 'Search in the Contao back end for an ID.';
 $GLOBALS['TL_LANG']['om_backend']['search_options']  = array('element' => 'Content element', 'module' => 'Module', 'page' => 'Page', 'article' => 'Article', 'news' => 'News', 'event' => 'Event');
+
+
+/**
+ * Buttons
+ */
+$GLOBALS['TL_LANG']['om_backend']['button_delete']   = 'Delete';
+$GLOBALS['TL_LANG']['om_backend']['button_cut']      = 'Move';
+$GLOBALS['TL_LANG']['om_backend']['button_copy']     = 'Copy';
+$GLOBALS['TL_LANG']['om_backend']['button_override'] = 'Override';
+$GLOBALS['TL_LANG']['om_backend']['button_edit']     = 'Edit';
+$GLOBALS['TL_LANG']['om_backend']['button_alias']    = 'Generate aliases';

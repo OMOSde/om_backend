@@ -34,6 +34,17 @@ $GLOBALS['TL_LANG']['om_backend']['search_options']  = array('element' => 'Inhal
 
 
 /**
+ * Buttons
+ */
+$GLOBALS['TL_LANG']['om_backend']['button_delete']   = 'Löschen';
+$GLOBALS['TL_LANG']['om_backend']['button_cut']      = 'Verschieben';
+$GLOBALS['TL_LANG']['om_backend']['button_copy']     = 'Kopieren';
+$GLOBALS['TL_LANG']['om_backend']['button_override'] = 'Überschreiben';
+$GLOBALS['TL_LANG']['om_backend']['button_edit']     = 'Bearbeiten';
+$GLOBALS['TL_LANG']['om_backend']['button_alias']    = 'Aliase generieren';
+ 
+ 
+/**
  * Error messages
  */
 $GLOBALS['TL_LANG']['om_backend']['error_id_not_found'] = 'Die ID %s konnte nicht gefunden werden.';
