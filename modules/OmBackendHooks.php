@@ -131,7 +131,7 @@ class OmBackendHooks extends \Backend
     }
 
     // generate save buttons
-    if (strpos($strContent, 'class="tl_submit_container"') !== false)
+    if (strpos($strContent, 'class="tl_submit_container"') !== false && strpos($strContent, 'name="save"') !== FALSE)
     {
       // button save
       if (strpos($strContent, 'name="save"') !== FALSE)
@@ -184,7 +184,7 @@ class OmBackendHooks extends \Backend
     }
     
     // edit multiple buttons
-    if (strpos($strContent, 'class="tl_submit_container"') !== false)
+    if (strpos($strContent, 'class="tl_submit_container"') !== false && strpos($strContent, 'name="edit"') !== FALSE)
     {
         // html button names
         $arrButtonNames = array('delete', 'cut', 'copy', 'override', 'edit', 'alias');
