@@ -49,13 +49,24 @@ class OmBackendHooks extends \Backend
       }
       
       // toolbar in user settings activated?
-      if ($this->User->isAdmin && $this->User->om_toolbar && !preg_match('/<body.*class=".*om_toolbar.*>/', $strContent))
+      if ($this->User->isAdmin && $this->User->om_toolbar > 0 && !preg_match('/<body.*class=".*om_toolbar.*>/', $strContent))
       {
         // add new css class to body
         $strContent = str_replace('<body id="top" class="', '<body id="top" class="om_toolbar ', $strContent);
         
-        // insert toolbar html 
-        $strContent = str_replace('<div id="container">', '<div id="container">' . $this->generateToolbar($strContent), $strContent);
+        // insert toolbar html
+        switch ($this->User->om_toolbar)
+        {
+            // vertical right
+            case 1:
+                $strContent = str_replace('<div id="container">', '<div id="container">' . $this->generateToolbar($strContent), $strContent);
+                break;
+            
+            // horizontal top
+            case 2:
+                $strContent = str_replace('<div id="container">', $this->generateToolbar($strContent) . '<div id="container">', $strContent);
+                break;
+        }        
       }        
         
       
@@ -79,8 +90,11 @@ class OmBackendHooks extends \Backend
     // get themes
     $objThemes = \ThemeModel::findAll(array('order'=>'name'));
     
+    // vertical or horizontal
+    $class = ($this->User->om_toolbar == 1) ? 'toolbar' : 'toolbarHorizontal'; 
+    
     // open container
-    $strToolbar  = '<div id="toolbar"><h1>Tools</h1>';
+    $strToolbar  = '<div id="'.$class.'"><h1>Tools</h1>';
     
     // add button - id search
     //$strToolbar .= '<a class="button" href="contao/main.php?do=id_search" title="'.$GLOBALS['TL_LANG']['om_backend']['id_search'].'"><img class="pngfix" src="system/modules/om_backend/html/find.png" width="16" height="16" alt="'.$GLOBALS['TL_LANG']['om_backend']['id_search'].'" onclick="Backend.getScrollOffset();Backend.openModalSelector({\'width\':765,\'title\':\'ID-Suche\',\'url\':this.href});return false"></a>';

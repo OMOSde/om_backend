@@ -41,3 +41,11 @@ $GLOBALS['TL_LANG']['om_backend']['button_copy']     = 'Copy';
 $GLOBALS['TL_LANG']['om_backend']['button_override'] = 'Override';
 $GLOBALS['TL_LANG']['om_backend']['button_edit']     = 'Edit';
 $GLOBALS['TL_LANG']['om_backend']['button_alias']    = 'Generate aliases';
+
+
+/**
+ * Options
+ */
+$GLOBALS['TL_LANG']['om_backend']['toolbar'][0] = 'No toolbar';
+$GLOBALS['TL_LANG']['om_backend']['toolbar'][1] = 'Show toolbar right';
+$GLOBALS['TL_LANG']['om_backend']['toolbar'][2] = 'Show toolbar top';

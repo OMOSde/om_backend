@@ -43,7 +43,15 @@ $GLOBALS['TL_LANG']['om_backend']['button_override'] = 'Überschreiben';
 $GLOBALS['TL_LANG']['om_backend']['button_edit']     = 'Bearbeiten';
 $GLOBALS['TL_LANG']['om_backend']['button_alias']    = 'Aliase generieren';
  
+
+/**
+ * Options
+ */
+$GLOBALS['TL_LANG']['om_backend']['toolbar'][0] = 'Toolbar nicht anzeigen';
+$GLOBALS['TL_LANG']['om_backend']['toolbar'][1] = 'Toolbar rechts anzeigen';
+$GLOBALS['TL_LANG']['om_backend']['toolbar'][2] = 'Toolbar oben anzeigen';
  
+  
 /**
  * Error messages
  */

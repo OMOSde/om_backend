@@ -15,7 +15,7 @@
 /**
  * Palettes
  */
-$GLOBALS['TL_DCA']['tl_user']['palettes']['login'] .= ';{om_backend_legend},om_small,om_toolbar,om_flags';
+$GLOBALS['TL_DCA']['tl_user']['palettes']['login'] .= ';{om_backend_legend},om_toolbar,om_small,om_flags';
 
 
 /**
@@ -27,7 +27,7 @@ $GLOBALS['TL_DCA']['tl_user']['fields']['om_small'] = array
   'default'                 => 0,
   'exclude'                 => true,
   'inputType'               => 'checkbox',
-  'eval'                    => array('tl_class'=>'w50'),
+  'eval'                    => array('tl_class'=>'w50 clr'),
   'sql'                     => "char(1) NOT NULL default ''"
 );
 $GLOBALS['TL_DCA']['tl_user']['fields']['om_toolbar'] = array
@@ -35,9 +35,11 @@ $GLOBALS['TL_DCA']['tl_user']['fields']['om_toolbar'] = array
   'label'                   => &$GLOBALS['TL_LANG']['tl_user']['om_toolbar'],
   'default'                 => 0,
   'exclude'                 => true,
-  'inputType'               => 'checkbox',
+  'inputType'               => 'select',
+  'options'                 => array(0, 1, 2),
+  'reference'               => &$GLOBALS['TL_LANG']['om_backend']['toolbar'],
   'eval'                    => array('tl_class'=>'w50'),
-  'sql'                     => "char(1) NOT NULL default ''"
+  'sql'                     => "int(10) unsigned NOT NULL default '0'"
 );
 $GLOBALS['TL_DCA']['tl_user']['fields']['om_flags'] = array
 (

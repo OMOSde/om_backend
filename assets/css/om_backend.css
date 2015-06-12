@@ -77,15 +77,90 @@ body.om_toolbar #toolbar .button {
   background-image: -ms-linear-gradient(bottom,#ccc 0,#eee 60%);
   background-image: linear-gradient(bottom,#ccc 0,#eee 60%);
 }
-body.om_toolbar #toolbar .button img {
-  
-}
 body.om_toolbar #toolbar .button:hover {
   box-shadow: 0 0 3px #aaa;
 }
 body.om_toolbar #toolbar .separator {
   margin:10px 0;
   border-bottom: 1px solid #bbb;
+}
+
+
+body.om_toolbar #toolbarHorizontal {
+    width: 958px;
+    margin: 18px auto;
+    text-align: left;
+    background: #fff;
+    border: 1px solid #bbb;
+    border-radius: 3px;
+    box-shadow: 0 3px 6px #ccc;    
+}    
+body.om_toolbar #toolbarHorizontal:after { 
+    content: ".";
+    clear: both;
+    display: block;
+    visibility: hidden;
+    height: 0px;
+}
+body.om_toolbar #toolbarHorizontal h1 {
+    margin: 1px;
+    padding: 4px 8px 6px;
+    color: #fff;
+    border-radius: 3px 3px 0 0;    
+    background: #909390;
+    background-image: -moz-linear-gradient(top,#909390,#b3b6b3);
+    background-image: -webkit-linear-gradient(top,#909390,#b3b6b3);
+    background-image: -o-linear-gradient(top,#909390,#b3b6b3);
+    background-image: -ms-linear-gradient(top,#909390,#b3b6b3);
+    background-image: linear-gradient(to bottom,#909390,#b3b6b3);
+}
+body.om_toolbar #toolbarHorizontal .button {
+  display:block;
+  float:left;
+  margin:4px 0 4px 8px;
+  padding: 3px 7px;
+  border: 1px solid #b8b8b8;
+  border-radius: 3px;
+  color: #666966;
+  cursor: pointer;
+  line-height: 1;
+  text-shadow: 1px 1px 0 #eee;
+  background: #eee;
+  background-image: -moz-linear-gradient(bottom,#ccc 0,#eee 60%);
+  background-image: -webkit-linear-gradient(bottom,#ccc 0,#eee 60%);
+  background-image: -o-linear-gradient(bottom,#ccc 0,#eee 60%);
+  background-image: -ms-linear-gradient(bottom,#ccc 0,#eee 60%);
+  background-image: linear-gradient(bottom,#ccc 0,#eee 60%);
+}
+body.om_toolbar #toolbarHorizontal .button:first-child {
+    margin-left:8px;
+}
+body.om_toolbar #toolbarHorizontal .button img {
+    width:16px;
+    height:16px;
+}
+body.om_toolbar #toolbarHorizontal .separator {
+    float:left;
+    margin-left:8px;
+    height:32px;
+    border-left: 1px solid #bbb;
+}
+@media (min-width: 1200px) {
+    body.om_toolbar #toolbarHorizontal {
+        width:1138px;
+    }
+}
+@media (max-width: 991px) {
+    body.om_toolbar #toolbarHorizontal {
+        width:743px;
+    }
+}
+@media (max-width: 767px) {
+    body.om_toolbar #toolbarHorizontal {
+        width: auto;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
 }
 
 
