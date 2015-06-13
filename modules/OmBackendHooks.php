@@ -68,7 +68,9 @@ class OmBackendHooks extends \Backend
                 break;
         }        
       }        
-        
+      
+      // element buttons
+      $strContent = str_replace('<select name="type">', $this->generateElementButtons() . '<select name="type">', $strContent);
       
       // check table, prevent error since installation
       $objCheck = $this->Database->prepare("SHOW TABLES LIKE 'tl_om_backend_links'")->execute();
@@ -217,6 +219,28 @@ class OmBackendHooks extends \Backend
     $strToolbar .= '</div>';
     
     return $strToolbar;
+  }
+
+
+  /**
+   * Generate element buttons
+   * 
+   * @return string
+   */
+  protected function generateElementButtons()
+  {
+      $strReturn = '';
+     
+      if ((\Input::get('do') == 'article' && \Input::get('mode') > 0) || (\Input::get('do') == 'article' && \Input::get('table') == 'tl_content'))
+      {
+         $strReturn .= '<div class="elementButtons">';
+         
+         
+         
+         $strReturn .= '</div>';
+      } 
+     
+      return $strReturn;
   }
 
 
