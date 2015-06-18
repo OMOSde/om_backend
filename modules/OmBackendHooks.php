@@ -76,7 +76,8 @@ class OmBackendHooks extends \Backend
       $objCheck = $this->Database->prepare("SHOW TABLES LIKE 'tl_om_backend_links'")->execute();
       if ($objCheck->numRows == 1) {
         // add backend links
-        $strContent = str_replace('<ul class="tl_level_1">', '<ul class="tl_level_1">' . $this->generateBackendLinks(), $strContent);
+        $strSearch = (version_compare(VERSION.'.'.BUILD, '3.3.0', '>=')) ? '<ul class="tl_level_1 collapsible_area">' : '<ul class="tl_level_1">';
+        $strContent = str_replace($strSearch, $strSearch . $this->generateBackendLinks(), $strContent);
       }
     }
  
@@ -233,46 +234,47 @@ class OmBackendHooks extends \Backend
      
       if ((\Input::get('do') == 'article' && \Input::get('mode') > 0) || (\Input::get('do') == 'article' && \Input::get('table') == 'tl_content'))
       {
-         $strReturn .= '<div class="elementButtons">';
+          $strReturn .= '<div class="elementButtons">';
          
          
          
-         $strReturn .= '</div>';
+          $strReturn .= '</div>';
       } 
      
       return $strReturn;
   }
 
 
-  /**
-   * Generate backend links
-   * 
-   * @return string;
-   */
-  protected function generateBackendLinks()
-  {
-    // get all links
-    $objLinks = $this->Database->prepare("SELECT * FROM tl_om_backend_links WHERE language=? AND published=1")->execute($this->User->language);
-    while ($objLinks->next())
+    /**
+     * Generate backend links
+     * 
+     * @return string;
+     */
+    protected function generateBackendLinks()
     {
-      $arrGroups[$objLinks->be_group][$objLinks->title] = $objLinks->url; 
-    }
-    
-    if (is_array($arrGroups))
-    {
-      $strReturn = '';
-      foreach ($arrGroups as $groupName => $group) 
-      {
-        $strReturn .= '<li class="tl_level_1_group"><a href="contao/main.php?do=repository_manager&amp;mtg='.$groupName.'" title="" onclick="return AjaxRequest.toggleNavigation(this,\''.$groupName.'\')"><img src="system/themes/default/images/modMinus.gif" width="16" height="16" alt="">'.$groupName.'</a></li>';
-        $strReturn .= '<li class="tl_parent" id="'.$groupName.'" style="display: inline;"><ul class="tl_level_2">';
-        foreach ($group as $linkTitle => $link)
+        // get all links
+        $objLinks = $this->Database->prepare("SELECT * FROM tl_om_backend_links WHERE language=? AND published=1")->execute($this->User->language);        
+        while ($objLinks->next())
         {
-          $strReturn .= '<li><a href="'.$link.'&amp;rt=' . $_SESSION['REQUEST_TOKEN'] . '" class="navigation themes" title="">'.$linkTitle.'</a></li>';
+            $arrGroups[$objLinks->be_group][$objLinks->title] = $objLinks->url; 
         }
-        $strReturn .= '</ul></li>';
-      }
+        
+        if (is_array($arrGroups))
+        {
+            $strReturn = '';
+            foreach ($arrGroups as $groupName => $group) 
+            {
+                
+                $strReturn .= '<li class="tl_level_1_group"><a href="contao/main.php?do=repository_manager&amp;mtg='.$groupName.'" title="" onclick="return AjaxRequest.toggleNavigation(this,\''.$groupName.'\')"><img src="system/themes/default/images/modMinus.gif" width="16" height="16" alt="">'.$groupName.'</a></li>';
+                $strReturn .= '<li class="tl_parent" id="'.$groupName.'" style="display: inline;"><ul class="tl_level_2">';
+                foreach ($group as $linkTitle => $link)
+                {
+                    $strReturn .= '<li><a href="'.$link.'&amp;rt=' . $_SESSION['REQUEST_TOKEN'] . '" class="navigation themes" title="">'.$linkTitle.'</a></li>';
+                }
+                $strReturn .= '</ul></li>';
+            }
+        }
+        
+        return $strReturn; 
     }
-    
-    return $strReturn; 
-  }
 }
