@@ -264,12 +264,18 @@ class OmBackendHooks extends \Backend
             $strReturn = '';
             foreach ($arrGroups as $groupName => $group) 
             {
-                
                 $strReturn .= '<li class="tl_level_1_group"><a href="contao/main.php?do=repository_manager&amp;mtg='.$groupName.'" title="" onclick="return AjaxRequest.toggleNavigation(this,\''.$groupName.'\')"><img src="system/themes/default/images/modMinus.gif" width="16" height="16" alt="">'.$groupName.'</a></li>';
                 $strReturn .= '<li class="tl_parent" id="'.$groupName.'" style="display: inline;"><ul class="tl_level_2">';
                 foreach ($group as $linkTitle => $link)
                 {
-                    $strReturn .= '<li><a href="'.$link.'&amp;rt=' . $_SESSION['REQUEST_TOKEN'] . '" class="navigation themes" title="">'.$linkTitle.'</a></li>';
+                    if (strpos($link, 'contao/main.php') !== false)
+                    {
+                        $link .= (strpos($link, '?') !== false) ? '&' : '?';
+                        $strReturn .= '<li><a href="'.$link.'rt=' . $_SESSION['REQUEST_TOKEN'] . '" class="navigation themes" title="">'.$linkTitle.'</a></li>';
+                    } else {
+                        $strReturn .= '<li><a href="'.$link.'" target="_blank" class="navigation themes" title="">'.$linkTitle.'</a></li>';
+                    }
+
                 }
                 $strReturn .= '</ul></li>';
             }
