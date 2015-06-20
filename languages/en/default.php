@@ -49,3 +49,15 @@ $GLOBALS['TL_LANG']['om_backend']['button_alias']    = 'Generate aliases';
 $GLOBALS['TL_LANG']['om_backend']['toolbar'][0] = 'No toolbar';
 $GLOBALS['TL_LANG']['om_backend']['toolbar'][1] = 'Show toolbar right';
 $GLOBALS['TL_LANG']['om_backend']['toolbar'][2] = 'Show toolbar top';
+
+
+/**
+ * Features
+ */
+$GLOBALS['TL_LANG']['om_backend']['feature']['viewInfoOnShift'] = 'ID´s anzeigen, bei gehaltener Shift-Taste';
+
+
+/**
+ * Error messages
+ */
+$GLOBALS['TL_LANG']['om_backend']['error_id_not_found'] = 'The ID% s could not be found.';
