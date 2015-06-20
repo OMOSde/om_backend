@@ -15,7 +15,7 @@
 /**
  * Palettes
  */
-$GLOBALS['TL_DCA']['tl_user']['palettes']['login'] .= ';{om_backend_legend},om_toolbar,om_small,om_flags';
+$GLOBALS['TL_DCA']['tl_user']['palettes']['login'] .= ';{om_backend_legend},om_toolbar,om_small,om_flags,om_features';
 
 
 /**
@@ -49,4 +49,13 @@ $GLOBALS['TL_DCA']['tl_user']['fields']['om_flags'] = array
   'inputType'               => 'checkbox',
   'eval'                    => array('tl_class'=>'w50'),
   'sql'                     => "char(1) NOT NULL default ''"
+);
+$GLOBALS['TL_DCA']['tl_user']['fields']['om_features'] = array
+(
+    'label'                   => &$GLOBALS['TL_LANG']['tl_user']['om_features'],
+    'inputType'               => 'checkboxWizard',
+    'options'                 => array('viewInfoOnShift'),
+    'reference'               => &$GLOBALS['TL_LANG']['om_backend']['feature'],
+    'eval'                    => array('multiple' => true, 'tl_class' => 'clr'),
+    'sql'                     => "text NULL"
 );
