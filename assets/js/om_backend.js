@@ -50,7 +50,7 @@ function keyDown(event)
     if (event.code == 16 && !isKeyDown)
     {
         isKeyDown = true;
-        $$('.tl_listing .tl_right, .tl_listing .tl_right_nowrap').each(function(elem) {
+        $$('.om_viewInfoOnShift .tl_listing .tl_right, .om_viewInfoOnShift .tl_listing .tl_right_nowrap').each(function(elem) {
             var id = 0;
             elem.getElements('a').each(function(link) {
                 pos = link.get('href').indexOf('&id=');
@@ -79,7 +79,7 @@ function keyUp(event)
     if (event.code == 16)
     {
         isKeyDown = false;
-        $$('.tl_listing .tl_left, .tl_listing .tl_file_list').each(function(elem) {
+        $$('.om_viewInfoOnShift .tl_listing .tl_left, .om_viewInfoOnShift .tl_listing .tl_file_list').each(function(elem) {
             pos = elem.get('html').indexOf('<span style="color:#b3b3b3;padding-left:3px">[ID:');
             if (pos > 0)
             {
