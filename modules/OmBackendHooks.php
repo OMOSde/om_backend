@@ -47,7 +47,15 @@ class OmBackendHooks extends \Backend
         // activate through new css class
         $strContent = str_replace('<body id="top" class="', '<body id="top" class="om_backend ', $strContent);          
       }
-      
+
+      // features active
+      $arrFeatures = deserialize($this->User->om_features);
+      if (in_array('viewInfoOnShift', $arrFeatures) && !preg_match('/<body.*class=".*om_viewInfoOnShift.*>/', $strContent))
+      {
+          // activate through new css class
+          $strContent = str_replace('<body id="top" class="', '<body id="top" class="om_viewInfoOnShift ', $strContent);
+      }
+
       // toolbar in user settings activated?
       if ($this->User->isAdmin && $this->User->om_toolbar > 0 && !preg_match('/<body.*class=".*om_toolbar.*>/', $strContent))
       {

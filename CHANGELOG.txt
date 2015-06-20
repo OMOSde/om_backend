@@ -4,6 +4,7 @@ Modul OM-Backend Changelog
 
 Version 1.0.8 stable (2015-??-??)
 ---------------------------------
+- Added: View ID´s on holding down the shift key
 - Added: toggle button for backend links
 - Added: Support external urls in backend links
 - Added: button for edit multiple in toolbar (including submit buttons)

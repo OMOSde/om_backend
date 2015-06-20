@@ -20,6 +20,7 @@ $GLOBALS['TL_LANG']['tl_user']['om_backend_legend'] = 'Einstellungen von OM-Back
 /**
  * Fields
  */
-$GLOBALS['TL_LANG']['tl_user']['om_small']   = array('verkürzte Elementdarstellung verwenden', 'Mit dieser Einstellung können Sie für das Backend eine verkürzte Darstellung wählen.');
-$GLOBALS['TL_LANG']['tl_user']['om_toolbar'] = array('Toolbar aktivieren', 'Mit dieser Einstellung können Sie für im Backend eine praktische Toolbar aktivieren.');
-$GLOBALS['TL_LANG']['tl_user']['om_flags']   = array('Sprache bei Startpunkten anzeigen', 'Diese Einstellung erlaubt das Anzeige der zugehörigen Sprache bei Startpunkten in der Seiten-/Artikelansicht.');
+$GLOBALS['TL_LANG']['tl_user']['om_small']    = array('verkürzte Elementdarstellung verwenden', 'Mit dieser Einstellung können Sie für das Backend eine verkürzte Darstellung wählen.');
+$GLOBALS['TL_LANG']['tl_user']['om_toolbar']  = array('Toolbar aktivieren', 'Mit dieser Einstellung können Sie für im Backend eine praktische Toolbar aktivieren.');
+$GLOBALS['TL_LANG']['tl_user']['om_flags']    = array('Sprache bei Startpunkten anzeigen', 'Diese Einstellung erlaubt das Anzeige der zugehörigen Sprache bei Startpunkten in der Seiten-/Artikelansicht.');
+$GLOBALS['TL_LANG']['tl_user']['om_features'] = array('Aktive Backend-Features', 'Aktivieren Sie die Backend-Features die Sie benötigen.');
