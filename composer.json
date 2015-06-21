@@ -1,5 +1,5 @@
 {
-  "name":"OMOSde/om_backend",
+  "name":"omosde/om_backend",
   "description":"This Contao module add some backend tools.",
   "keywords":["contao","backend","tools","support"],
   "type":"contao-module",
