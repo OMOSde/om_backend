@@ -147,6 +147,9 @@ body.om_toolbar #toolbarHorizontal .separator {
 }
 @media (min-width: 1200px) {
     body.om_toolbar #toolbarHorizontal {
+        width:960px;
+    }
+    body.om_toolbar #toolbarHorizontal.contao33 {
         width:1138px;
     }
 }

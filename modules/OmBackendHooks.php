@@ -102,10 +102,11 @@ class OmBackendHooks extends \Backend
     $objThemes = \ThemeModel::findAll(array('order'=>'name'));
     
     // vertical or horizontal
-    $class = ($this->User->om_toolbar == 1) ? 'toolbar' : 'toolbarHorizontal'; 
+    $id    = ($this->User->om_toolbar == 1) ? 'toolbar' : 'toolbarHorizontal';
+    $class = (version_compare(VERSION.'.'.BUILD, '3.3.0', '<')) ? '' : 'contao33';
     
     // open container
-    $strToolbar  = '<div id="'.$class.'"><h1>Tools</h1>';
+    $strToolbar  = '<div id="'.$id.'" class="'.$class.'"><h1>Tools</h1>';
     
     // add button - id search
     //$strToolbar .= '<a class="button" href="contao/main.php?do=id_search" title="'.$GLOBALS['TL_LANG']['om_backend']['id_search'].'"><img class="pngfix" src="system/modules/om_backend/html/find.png" width="16" height="16" alt="'.$GLOBALS['TL_LANG']['om_backend']['id_search'].'" onclick="Backend.getScrollOffset();Backend.openModalSelector({\'width\':765,\'title\':\'ID-Suche\',\'url\':this.href});return false"></a>';
