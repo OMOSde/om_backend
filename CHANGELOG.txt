@@ -2,7 +2,7 @@
 Modul OM-Backend Changelog
 =================================
 
-Version 1.0.8 stable (2015-??-??)
+Version 1.1.0 stable (2015-??-??)
 ---------------------------------
 - Added: composer.json in root to support composer
 - Added: View ID´s on holding down the shift key
