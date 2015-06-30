@@ -1,27 +1,34 @@
 {
-  "name":"omosde/om_backend",
-  "description":"This Contao module add some backend tools.",
-  "keywords":["contao","backend","tools","support"],
-  "type":"contao-module",
-  "homepage":"http://omos.de",
-  "license":"LGPL-3.0+",
-  "authors":[
-    {
-      "name":"René Fehrmann",
-      "homepage":"http://omos.de",
-      "role":"Developer"
+    "name":"omosde/om_backend",
+    "description":"This Contao module add some backend tools.",
+    "keywords":["contao","backend","tools","support"],
+    "type":"contao-module",
+    "homepage":"http://omos.de",
+    "license":"LGPL-3.0+",
+    "authors":[
+        {
+            "name":"René Fehrmann",
+            "homepage":"http://omos.de",
+            "role":"Developer"
+        }
+    ],
+    "support":{
+        "issues":"https://github.com/OMOSde/om_backend/issues",
+        "source":"https://github.com/OMOSde/om_backend"
+    },
+    "require":{
+        "php":">=5.3",
+        "contao/core":">=3.2,<4",
+        "contao-community-alliance/composer-plugin": "*"
+    },
+    "replace":{
+        "contao-legacy/om_backend":"self.version"
     }
-  ],
-  "support":{
-    "issues":"https://github.com/OMOSde/om_backend/issues",
-    "source":"https://github.com/OMOSde/om_backend"
-  },
-  "require":{
-    "php":">=5.3",
-    "contao/core":">=3.2,<4",
-    "contao-community-alliance/composer-plugin": "*"
-  },
-  "replace":{
-    "contao-legacy/om_backend":"self.version"
-  }
+    "extra":{
+        "contao":{
+            "sources":{
+                "":"system/modules/om_backend"
+            }
+        }
+    }  
 }
