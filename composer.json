@@ -23,7 +23,7 @@
     },
     "replace":{
         "contao-legacy/om_backend":"self.version"
-    }
+    },
     "extra":{
         "contao":{
             "sources":{
