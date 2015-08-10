@@ -56,7 +56,7 @@ body.om_toolbar #toolbar.fixed {
 body.om_toolbar #toolbar h1 { 
   margin: 1px 1px 8px;
   padding: 4px 8px 6px;
-  background: #b3b6b3 url("../../system/themes/default/images/headline.gif") repeat-x;
+  background-image:linear-gradient(to bottom, #909390, #b3b6b3);
   color: #fff;
   border-radius: 3px 3px 0 0;
 }
