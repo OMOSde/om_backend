@@ -119,7 +119,8 @@ class OmBackendHooks extends \Backend
     $strToolbar .= '<a class="button" href="contao/main.php?do=tpl_editor&key=new_tpl&rt=' . $_SESSION['REQUEST_TOKEN'] .'" title="'.$GLOBALS['TL_LANG']['om_backend']['new_template'].'"><img class="pngfix" src="system/modules/om_backend/assets/icons/page_add.png" width="16" height="16" alt="'.$GLOBALS['TL_LANG']['om_backend']['new_template'].'"></a>';
     
     // add button - sync 
-    $strToolbar .= '<a class="button" href="contao/main.php?do=files&amp;act=sync&amp;rt=' . $_SESSION['REQUEST_TOKEN'] .'" title="'.$GLOBALS['TL_LANG']['om_backend']['sync_files'].'"><img class="pngfix" src="system/themes/default/images/sync.gif" width="16" height="16" alt="'.$GLOBALS['TL_LANG']['om_backend']['sync_files'].'"></a>';
+    $syncLink = (!$this->checkComposer()) ? 'do=files&amp;act=sync' : 'do=composer&amp;update=database';
+    $strToolbar .= '<a class="button" href="contao/main.php?' . $syncLink . '&amp;rt=' . $_SESSION['REQUEST_TOKEN'] .'" title="'.$GLOBALS['TL_LANG']['om_backend']['sync_files'].'"><img class="pngfix" src="system/themes/default/images/sync.gif" width="16" height="16" alt="'.$GLOBALS['TL_LANG']['om_backend']['sync_files'].'"></a>';
     
     // exist a theme?
     if (is_object($objThemes) && $objThemes->count() > 0)
@@ -291,5 +292,15 @@ class OmBackendHooks extends \Backend
         }
         
         return $strReturn; 
+    }
+    
+    /**
+     * Check if Composer is installed
+     *
+     * @return boolean
+     */
+    protected function checkComposer()
+    {
+        return (is_array($GLOBALS['BE_MOD']['system']['composer']));
     }
 }
