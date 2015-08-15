@@ -34,7 +34,10 @@ class OmBackendIdSearch extends \BackendModule
      * Generate module
      */
     protected function compile()
-    {          
+    {
+        // get tables from database
+        $arrTables = $this->Database->listTables();
+
         // get all dca tables
         foreach ($GLOBALS['BE_MOD'] as $groupName => $group)
         {
@@ -44,9 +47,12 @@ class OmBackendIdSearch extends \BackendModule
                 {
                     foreach ($modules['tables'] as $table)
                     {
-                        $arrGroups[$groupName]['title']    = $GLOBALS['TL_LANG']['MOD'][$groupName]; 
-                        $arrGroups[$groupName]['tables'][] = array($table, $GLOBALS['TL_LANG']['MOD'][$moduleName][0], $moduleName);                      
-                    }                    
+                        if (in_array($table, $arrTables))
+                        {
+                            $arrGroups[$groupName]['title']    = $GLOBALS['TL_LANG']['MOD'][$groupName];
+                            $arrGroups[$groupName]['tables'][] = array($table, $GLOBALS['TL_LANG']['MOD'][$moduleName][0], $moduleName);
+                        }
+                    }
                 }
             }
         }
