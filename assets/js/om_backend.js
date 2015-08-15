@@ -52,12 +52,14 @@ function keyDown(event)
         isKeyDown = true;
         $$('.om_viewInfoOnShift .tl_listing .tl_right, .om_viewInfoOnShift .tl_listing .tl_right_nowrap, .om_viewInfoOnShift .tl_content .tl_content_right').each(function(elem) {
             var id = 0;
-            elem.getElements('a').each(function(link) {
+            elem.getElements('a').some(function(link) {
                 pos = link.get('href').indexOf('&id=');
                 if (pos > 0)
                 {
                     part = link.get('href').substr(pos + 4);
                     id = part.substr(0, part.indexOf('&'));
+
+                    return true;
                 }
             });
 
