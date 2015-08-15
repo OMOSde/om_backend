@@ -165,7 +165,9 @@ body.om_toolbar #toolbarHorizontal .separator {
         margin-right: 10px;
     }
 }
-
+body.popup.om_toolbar #toolbarHorizontal {
+    display:none;
+}
 
 /***** sysinfo *****/
 

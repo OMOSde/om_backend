@@ -8,6 +8,8 @@ Version 1.1.3 stable (2015-08-15)
 - Fixed: button 'update database' has wrong link & icon, when composer is installed
 - Fixed: options without existing table in id-search
 - Fixed: show wrong id´s for content elements on holding shift
+- Fixed: toolbar shown in modal windows
+
 
 Version 1.1.2 stable (2015-06-30)
 ---------------------------------
