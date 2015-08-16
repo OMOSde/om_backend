@@ -32,6 +32,120 @@ body.om_backend .cte_type {
   margin-bottom:2px;
 }
 
+/***** Buttons *****/
+
+.om_elements {
+    margin:4px 0 6px 0;
+}
+.om_elements .group {
+    margin:0 16px 0 0;
+    float:left;
+}
+.om_elements .button {
+    display:inline-block;
+    margin: 0 2px 0 0;
+    padding: 2px 3px 2px;
+    border: 1px solid #b8b8b8;
+    border-radius: 3px;
+    color: #666966;
+    cursor: pointer;
+    text-shadow: 1px 1px 0 #eee;
+    background: #eee;
+    background-image: -moz-linear-gradient(bottom,#ccc 0,#eee 60%);
+    background-image: -webkit-linear-gradient(bottom,#ccc 0,#eee 60%);
+    background-image: -o-linear-gradient(bottom,#ccc 0,#eee 60%);
+    background-image: -ms-linear-gradient(bottom,#ccc 0,#eee 60%);
+    background-image: linear-gradient(bottom,#ccc 0,#eee 60%);
+}
+.om_elements .button:hover {
+    box-shadow: 0 0 3px #aaa;
+}
+.om_elements .button .images {
+    width:16px;
+    height:16px;
+    background:url('../icons/buttons.png') 0 0 no-repeat;
+}
+.om_elements .button .images.headline {
+    background-position:0 -32px;
+}
+.om_elements .button .images.text {
+    background-position:0 -48px;
+}
+.om_elements .button .images.html {
+    background-position:-16px -32px;
+}
+.om_elements .button .images.list {
+    background-position:-16px -48px;
+}
+.om_elements .button .images.table {
+    background-position:-64px -16px;
+}
+.om_elements .button .images.code {
+    background-position:-32px 0;
+}
+.om_elements .button .images.markdown {
+    background-position:-48px -32px;
+}
+.om_elements .button .images.accordionSingle {
+    background-position:-64px -48px;
+}
+.om_elements .button .images.accordionStart {
+    background-position:-48px -64px;
+}
+.om_elements .button .images.accordionStop {
+    background-position:-48px -64px;
+}
+.om_elements .button .images.sliderStart {
+    background-position:-16px -64px;
+}
+.om_elements .button .images.sliderStop {
+    background-position:-32px -64px;
+}
+.om_elements .button .images.hyperlink {
+    background-position:-32px -32px;
+}
+.om_elements .button .images.toplink {
+    background-position:-32px -48px;
+}
+.om_elements .button .images.image {
+    background-position:-32px -16px;
+}
+.om_elements .button .images.gallery {
+    background-position:-48px -16px;
+}
+.om_elements .button .images.player {
+    background-position:0 -64px;
+}
+.om_elements .button .images.youtube {
+    background-position:-48px -48px;
+}
+.om_elements .button .images.download {
+    background-position:0 -16px;
+}
+.om_elements .button .images.downloads {
+    background-position:-16px -16px;
+}
+.om_elements .button .images.article {
+    background-position:-80px -16px;
+}
+.om_elements .button .images.alias {
+    background-position:-80px -32px;
+}
+.om_elements .button .images.form {
+    background-position:-64px 0;
+}
+.om_elements .button .images.module {
+    background-position:-64px -32px;
+}
+.om_elements .button .images.teaser {
+    background-position:0 -32px;
+}
+.om_elements .button .images.comments {
+    background-position:-48px 0;
+}
+.om_elements .clear {
+    clear:both;
+}
 
 /***** Toolbar *****/
 

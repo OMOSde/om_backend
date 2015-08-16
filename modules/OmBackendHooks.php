@@ -40,20 +40,45 @@ class OmBackendHooks extends \Backend
     if ($strTemplate == 'be_main')
     {
       $this->import('BackendUser', 'User');
+
+      // active features
+      $arrFeatures = deserialize($this->User->om_features);
+
+      // handle viewInfoOnShift
+      if (is_array($arrFeatures) && in_array('viewInfoOnShift', $arrFeatures) && !preg_match('/<body.*class=".*om_viewInfoOnShift.*>/', $strContent))
+      {
+          // activate through new css class
+          $strContent = str_replace('<body id="top" class="', '<body id="top" class="om_viewInfoOnShift ', $strContent);
+      }
+
+      // element buttons
+      if (\Input::get('table') == 'tl_content' && \Input::get('act') == 'edit' && in_array('showElementButtons', $arrFeatures))
+      {
+          if (is_array($GLOBALS['TL_CTE']) && !empty($GLOBALS['TL_CTE']))
+          {
+              $strElements = '<div class="om_elements">';
+              foreach ($GLOBALS['TL_CTE'] as $group)
+              {
+                  $strElements .= '<div class="group">';
+                  foreach ($group as $key => $element)
+                  {
+                      $strPath = '/system/modules/om_backend/assets/buttons/';
+                      $strFile = (is_file(TL_ROOT.$strPath.$key.'.png')) ? $strPath.$key.'.png' : $strPath.'wildcard.png';
+                      $strElements .= '<div class="button" data-value="'.$key.'" title="'.$GLOBALS['TL_LANG']['CTE'][$key][0].'"><div class="images '.$key.'"></div></div>';
+                  }
+                  $strElements .= '</div>';
+              }
+              $strElements .= '<div class="clear"></div></div>';
+
+              $strContent = str_replace('<select name="type"', $strElements.'<select name="type"', $strContent);
+          }
+      }
       
       // small backend in user setting activated?
       if ($this->User->om_small && !preg_match('/<body.*class=".*om_backend.*>/', $strContent))
       {
         // activate through new css class
         $strContent = str_replace('<body id="top" class="', '<body id="top" class="om_backend ', $strContent);          
-      }
-
-      // features active
-      $arrFeatures = deserialize($this->User->om_features);
-      if (is_array($arrFeatures) && in_array('viewInfoOnShift', $arrFeatures) && !preg_match('/<body.*class=".*om_viewInfoOnShift.*>/', $strContent))
-      {
-          // activate through new css class
-          $strContent = str_replace('<body id="top" class="', '<body id="top" class="om_viewInfoOnShift ', $strContent);
       }
 
       // toolbar in user settings activated?

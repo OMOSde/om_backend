@@ -7,6 +7,9 @@ var isKeyDown = false;
 /**
  * Events
  */
+window.addEvent('domready', function() {
+    onDomReady();
+});
 window.addEvent('scroll', function(){
     calculateFixedToolbar();    
 });
@@ -19,6 +22,23 @@ window.addEvent('keydown', function(event) {
 window.addEvent('keyup', function(event) {
     keyUp(event);
 });
+
+
+/**
+ * Execute at domready
+ */
+function onDomReady()
+{
+    // handle element buttons
+    $$('.om_elements .button').each(function(item) {
+        item.addEvent('click', function() {
+            $$('#ctrl_type option[value='+item.get('data-value')+']').set("selected", "selected");
+            $$('#ctrl_type').fireEvent('liszt:updated').fireEvent('change');
+
+            document.getElementById("ctrl_type").onchange();
+        });
+    });
+}
 
 
 /**

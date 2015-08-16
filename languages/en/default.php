@@ -54,7 +54,8 @@ $GLOBALS['TL_LANG']['om_backend']['toolbar'][2] = 'Show toolbar top';
 /**
  * Features
  */
-$GLOBALS['TL_LANG']['om_backend']['feature']['viewInfoOnShift'] = 'ID´s anzeigen, bei gehaltener Shift-Taste';
+$GLOBALS['TL_LANG']['om_backend']['feature']['viewInfoOnShift']    = 'ID´s anzeigen, bei gehaltener Shift-Taste';
+$GLOBALS['TL_LANG']['om_backend']['feature']['showElementButtons'] = 'Show buttons to select content items';
 
 
 /**

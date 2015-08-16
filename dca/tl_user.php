@@ -54,7 +54,7 @@ $GLOBALS['TL_DCA']['tl_user']['fields']['om_features'] = array
 (
     'label'                   => &$GLOBALS['TL_LANG']['tl_user']['om_features'],
     'inputType'               => 'checkboxWizard',
-    'options'                 => array('viewInfoOnShift'),
+    'options'                 => array('viewInfoOnShift', 'showElementButtons'),
     'reference'               => &$GLOBALS['TL_LANG']['om_backend']['feature'],
     'eval'                    => array('multiple' => true, 'tl_class' => 'clr'),
     'sql'                     => "text NULL"
