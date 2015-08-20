@@ -62,20 +62,29 @@ class OmBackendIdSearch extends \BackendModule
         {
             // handle post data
             $arrSelected = explode('::', \Input::post('option'));
-            
-            // get data
-            $objData = $this->Database->prepare("SELECT * FROM ".$arrSelected[1]." WHERE id=?")->execute(\Input::post('id'));
-            
-            // id exists
+
+            // check table for alias field
+            $objAlias = $this->Database->prepare("SHOW COLUMNS FROM ".$arrSelected[1]." LIKE 'alias'")->execute();
+            if ($objAlias->numRows)
+            {
+                // get data
+                $objData = $this->Database->prepare("SELECT * FROM ".$arrSelected[1]." WHERE id=? or alias=?")->execute(\Input::post('id'), \Input::post('id'));
+            } else {
+                // get data
+                $objData = $this->Database->prepare("SELECT * FROM ".$arrSelected[1]." WHERE id=?")->execute(\Input::post('id'));
+            }
+
+
+            // id or alias exists
             if ($objData->numRows)
             {
                 // redirect
-                \System::redirect('contao/main.php?do='.$arrSelected[0].'&table='.$arrSelected[1].'&act=edit&id='.\Input::post('id').'&rt='.$_SESSION['REQUEST_TOKEN']);
+                \System::redirect('contao/main.php?do='.$arrSelected[0].'&table='.$arrSelected[1].'&act=edit&id='.$objData->id.'&rt='.$_SESSION['REQUEST_TOKEN']);
             } else {
                 // error
                 $this->Template->id       = \Input::post('id');
                 $this->Template->selected = $arrSelected[1];
-                $this->Template->error    = sprintf($GLOBALS['TL_LANG']['om_backend']['error_id_not_found'], \Input::post('id'));
+                $this->Template->error    = sprintf($GLOBALS['TL_LANG']['om_backend']['error_id_or_alias_not_found'], \Input::post('id'));
             }       
         }    
         

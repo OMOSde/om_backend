@@ -14,7 +14,7 @@
 /**
  * Tooltips
  */
-$GLOBALS['TL_LANG']['om_backend']['id_search']       = 'Search ID';
+$GLOBALS['TL_LANG']['om_backend']['id_search']       = 'Search ID or alias';
 $GLOBALS['TL_LANG']['om_backend']['update_database'] = 'Update database';
 $GLOBALS['TL_LANG']['om_backend']['new_template']    = 'Create a new template';
 $GLOBALS['TL_LANG']['om_backend']['sync_files']      = 'Sync Filesystem & Database';
@@ -26,9 +26,9 @@ $GLOBALS['TL_LANG']['om_backend']['layouts']         = 'Edit Seitenlayouts Theme
 /**
  * Id search
  */
-$GLOBALS['TL_LANG']['om_backend']['search_title']    = 'ID-Search';  
-$GLOBALS['TL_LANG']['om_backend']['search_submit']   = 'Start ID-Search';
-$GLOBALS['TL_LANG']['om_backend']['search_headline'] = 'Search in the Contao back end for an ID.';
+$GLOBALS['TL_LANG']['om_backend']['search_title']    = 'ID-Alias-Search';
+$GLOBALS['TL_LANG']['om_backend']['search_submit']   = 'Start ID-Alias-Search';
+$GLOBALS['TL_LANG']['om_backend']['search_headline'] = 'Search in the Contao back end for an ID or an alias.';
 $GLOBALS['TL_LANG']['om_backend']['search_options']  = array('element' => 'Content element', 'module' => 'Module', 'page' => 'Page', 'article' => 'Article', 'news' => 'News', 'event' => 'Event');
 
 
@@ -61,4 +61,4 @@ $GLOBALS['TL_LANG']['om_backend']['feature']['showElementButtons'] = 'Show butto
 /**
  * Error messages
  */
-$GLOBALS['TL_LANG']['om_backend']['error_id_not_found'] = 'The ID% s could not be found.';
+$GLOBALS['TL_LANG']['om_backend']['error_id_or_alias_not_found'] = 'The ID% or alias s could not be found.';

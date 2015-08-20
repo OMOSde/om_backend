@@ -15,6 +15,6 @@
  * Backend modules
  */
 $GLOBALS['TL_LANG']['MOD']['om_backend'] = 'Backend-Tools'; 
-$GLOBALS['TL_LANG']['MOD']['id_search']  = array('ID-Search', 'Searches in the backend by ID\'s for news, events, pages and content elements.');
+$GLOBALS['TL_LANG']['MOD']['id_search']  = array('ID-Alias-Search', 'Search an id or alias in all backend tables');
 $GLOBALS['TL_LANG']['MOD']['be_links']   = array('Backend-Links', 'Manage your backend links.');
 $GLOBALS['TL_LANG']['MOD']['sysinfo']    = array('System-Informations', 'Manage your system informations.');
