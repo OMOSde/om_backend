@@ -1,13 +1,13 @@
 <?php
 
 /**
- * Contao Open Source CMS
+ * Contao module om_backend
  *
- * Copyright (c) 2005-2014 Leo Feyer
- *
- * @package Om_backend
- * @link    https://contao.org
- * @license http://www.gnu.org/licenses/lgpl-3.0.html LGPL
+ * @copyright OMOS.de 2015 <http://www.omos.de>
+ * @author    René Fehrmann <rene.fehrmann@omos.de>
+ * @package   om_backend
+ * @link      http://www.omos.de
+ * @license   LGPL
  */
 
 
@@ -16,7 +16,7 @@
  */
 ClassLoader::addNamespaces(array
 (
-	'om_backend',
+    'om_backend',
 ));
 
 
@@ -25,9 +25,9 @@ ClassLoader::addNamespaces(array
  */
 ClassLoader::addClasses(array
 (
-	// Modules
-	'om_backend\OmBackendHooks'    => 'system/modules/om_backend/modules/OmBackendHooks.php',
-	'om_backend\OmBackendIdSearch' => 'system/modules/om_backend/modules/OmBackendIdSearch.php',
+    // Modules
+    'om_backend\OmBackendHooks'    => 'system/modules/om_backend/modules/OmBackendHooks.php',
+    'om_backend\OmBackendIdSearch' => 'system/modules/om_backend/modules/OmBackendIdSearch.php',
 ));
 
 
@@ -36,5 +36,5 @@ ClassLoader::addClasses(array
  */
 TemplateLoader::addFiles(array
 (
-	'mod_om_backend_id_search' => 'system/modules/om_backend/templates',
+    'mod_om_backend_id_search' => 'system/modules/om_backend/templates',
 ));

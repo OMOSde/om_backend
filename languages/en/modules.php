@@ -1,9 +1,9 @@
-<?php if (!defined('TL_ROOT')) die('You cannot access this file directly!');
+<?php
 
 /**
  * Contao module om_backend
  * 
- * @copyright OMOS.de 2014 <http://www.omos.de>
+ * @copyright OMOS.de 2015 <http://www.omos.de>
  * @author    René Fehrmann <rene.fehrmann@omos.de>
  * @package   om_backend
  * @link      http://www.omos.de

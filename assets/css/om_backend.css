@@ -1,7 +1,7 @@
 /**
  * Contao module om_backend
  * 
- * @copyright OMOS.de 2014 <http://www.omos.de>
+ * @copyright OMOS.de 2015 <http://www.omos.de>
  * @author    René Fehrmann <rene.fehrmann@omos.de>
  * @package   om_backend
  * @link      http://www.omos.de
@@ -12,25 +12,25 @@
 /***** Small backend *****/
 
 body.om_backend .tl_content {
-  position:relative;
-  width:auto;
+    position:relative;
+    width:auto;
 }
-body.om_backend .tl_content .cte_type,
-body.om_backend .tl_content .limit_height {
-  margin:0 0 0 24px;
+body.om_backend .tl_content .cte_type, body.om_backend .tl_content .limit_height {
+    margin:0 0 0 24px;
 }
 body.om_backend .tl_content h1 {
-  margin:0 0 2px;
+    margin:0 0 2px;
 }
 body.om_backend .tl_content .limit_toggler {
-  position:absolute;
-  top:0;
-  left:0;
-  margin-top:5px;
+    position:absolute;
+    top:0;
+    left:0;
+    margin-top:5px;
 }
 body.om_backend .cte_type {
-  margin-bottom:2px;
+    margin-bottom:2px;
 }
+
 
 /***** Buttons *****/
 
@@ -150,65 +150,63 @@ body.om_backend .cte_type {
 /***** Toolbar *****/
 
 body.om_toolbar #container {
-  position:relative;
+    position:relative;
 }
 body.om_toolbar #toolbar {
-  position:absolute;
-  top:0;
-  right:-67px;
-  width:55px;  
-  text-align: left;
-  background: #fff;
-  border: 1px solid #bbb;
-  border-radius: 3px;
-  box-shadow: 0 3px 6px #ccc;
+    position:absolute;
+    top:0;
+    right:-67px;
+    width:55px;
+    text-align: left;
+    background: #fff;
+    border: 1px solid #bbb;
+    border-radius: 3px;
+    box-shadow: 0 3px 6px #ccc;
 }
 body.om_toolbar #toolbar.fixed {
     position:fixed;
     top:0;
 }
 body.om_toolbar #toolbar h1 { 
-  margin: 1px 1px 8px;
-  padding: 4px 8px 6px;
-  background-image:linear-gradient(to bottom, #909390, #b3b6b3);
-  color: #fff;
-  border-radius: 3px 3px 0 0;
+    margin: 1px 1px 8px;
+    padding: 4px 8px 6px;
+    background-image:linear-gradient(to bottom, #909390, #b3b6b3);
+    color: #fff;
+    border-radius: 3px 3px 0 0;
 }
 body.om_toolbar #toolbar .button {
-  display:block;
-  margin:8px;
-  padding: 5px 11px;
-  border: 1px solid #b8b8b8;
-  border-radius: 3px;
-  color: #666966;
-  cursor: pointer;
-  line-height: 1;
-  text-shadow: 1px 1px 0 #eee;
-  background: #eee;
-  background-image: -moz-linear-gradient(bottom,#ccc 0,#eee 60%);
-  background-image: -webkit-linear-gradient(bottom,#ccc 0,#eee 60%);
-  background-image: -o-linear-gradient(bottom,#ccc 0,#eee 60%);
-  background-image: -ms-linear-gradient(bottom,#ccc 0,#eee 60%);
-  background-image: linear-gradient(bottom,#ccc 0,#eee 60%);
+    display:block;
+    margin:8px;
+    padding: 5px 11px;
+    border: 1px solid #b8b8b8;
+    border-radius: 3px;
+    color: #666966;
+    cursor: pointer;
+    line-height: 1;
+    text-shadow: 1px 1px 0 #eee;
+    background: #eee;
+    background-image: -moz-linear-gradient(bottom,#ccc 0,#eee 60%);
+    background-image: -webkit-linear-gradient(bottom,#ccc 0,#eee 60%);
+    background-image: -o-linear-gradient(bottom,#ccc 0,#eee 60%);
+    background-image: -ms-linear-gradient(bottom,#ccc 0,#eee 60%);
+    background-image: linear-gradient(bottom,#ccc 0,#eee 60%);
 }
 body.om_toolbar #toolbar .button:hover {
-  box-shadow: 0 0 3px #aaa;
+    box-shadow: 0 0 3px #aaa;
 }
 body.om_toolbar #toolbar .separator {
-  margin:10px 0;
-  border-bottom: 1px solid #bbb;
+    margin:10px 0;
+    border-bottom: 1px solid #bbb;
 }
-
-
 body.om_toolbar #toolbarHorizontal {
-    width: 958px;
     margin: 18px auto;
+    width: 958px;
     text-align: left;
-    background: #fff;
     border: 1px solid #bbb;
     border-radius: 3px;
-    box-shadow: 0 3px 6px #ccc;    
-}    
+    box-shadow: 0 3px 6px #ccc;
+    background: #fff;
+}
 body.om_toolbar #toolbarHorizontal:after { 
     content: ".";
     clear: both;
@@ -229,22 +227,22 @@ body.om_toolbar #toolbarHorizontal h1 {
     background-image: linear-gradient(to bottom,#909390,#b3b6b3);
 }
 body.om_toolbar #toolbarHorizontal .button {
-  display:block;
-  float:left;
-  margin:4px 0 4px 8px;
-  padding: 3px 7px;
-  border: 1px solid #b8b8b8;
-  border-radius: 3px;
-  color: #666966;
-  cursor: pointer;
-  line-height: 1;
-  text-shadow: 1px 1px 0 #eee;
-  background: #eee;
-  background-image: -moz-linear-gradient(bottom,#ccc 0,#eee 60%);
-  background-image: -webkit-linear-gradient(bottom,#ccc 0,#eee 60%);
-  background-image: -o-linear-gradient(bottom,#ccc 0,#eee 60%);
-  background-image: -ms-linear-gradient(bottom,#ccc 0,#eee 60%);
-  background-image: linear-gradient(bottom,#ccc 0,#eee 60%);
+    display:block;
+    float:left;
+    margin:4px 0 4px 8px;
+    padding: 3px 7px;
+    color: #666966;
+    cursor: pointer;
+    line-height: 1;
+    text-shadow: 1px 1px 0 #eee;
+    border: 1px solid #b8b8b8;
+    border-radius: 3px;
+    background: #eee;
+    background-image: -moz-linear-gradient(bottom,#ccc 0,#eee 60%);
+    background-image: -webkit-linear-gradient(bottom,#ccc 0,#eee 60%);
+    background-image: -o-linear-gradient(bottom,#ccc 0,#eee 60%);
+    background-image: -ms-linear-gradient(bottom,#ccc 0,#eee 60%);
+    background-image: linear-gradient(bottom,#ccc 0,#eee 60%);
 }
 body.om_toolbar #toolbarHorizontal .button:first-child {
     margin-left:8px;
@@ -283,28 +281,29 @@ body.popup.om_toolbar #toolbarHorizontal {
     display:none;
 }
 
+
 /***** sysinfo *****/
 
 .tl_file_list .low {
-  padding:2px 0 0 20px;
-  background:url('../icons/arrow_low.png') no-repeat;
+    padding:2px 0 0 20px;
+    background:url('../icons/arrow_low.png') no-repeat;
 }
 .tl_file_list .middle {
-  padding:2px 0 0 20px;
-  background:url('../icons/arrow_middle.png') no-repeat;
+    padding:2px 0 0 20px;
+    background:url('../icons/arrow_middle.png') no-repeat;
 }
 .tl_file_list .high {
-  padding:2px 0 0 20px;
-  background:url('../icons/arrow_high.png') no-repeat;
+    padding:2px 0 0 20px;
+    background:url('../icons/arrow_high.png') no-repeat;
 }
 
 
 /***** id search *****/
 
 .mod_om_backend_id_search input.id {
-  margin:1px 0;
-  padding: 3px 3px;
-  width:80px;
-  border: 1px solid #aaa;
-  border-radius: 3px;
+    margin:1px 0;
+    padding: 3px 3px;
+    width:80px;
+    border: 1px solid #aaa;
+    border-radius: 3px;
 }
