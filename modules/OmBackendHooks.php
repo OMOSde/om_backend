@@ -146,7 +146,7 @@ class OmBackendHooks extends \Backend
     
         // add button - id search
         //$strToolbar .= '<a class="button" href="contao/main.php?do=id_search" title="'.$GLOBALS['TL_LANG']['om_backend']['id_search'].'"><img class="pngfix" src="system/modules/om_backend/html/find.png" width="16" height="16" alt="'.$GLOBALS['TL_LANG']['om_backend']['id_search'].'" onclick="Backend.getScrollOffset();Backend.openModalSelector({\'width\':765,\'title\':\'ID-Suche\',\'url\':this.href});return false"></a>';
-        $strToolbar .= '<a class="button" href="contao/main.php?do=id_search" title="'.$GLOBALS['TL_LANG']['om_backend']['id_search'].'"><img class="pngfix" src="system/modules/om_backend/html/find.png" width="16" height="16" alt="'.$GLOBALS['TL_LANG']['om_backend']['id_search'].'"></a>';
+        $strToolbar .= '<a class="button" href="contao/main.php?do=id_search" title="'.$GLOBALS['TL_LANG']['om_backend']['id_search'].'"><img class="pngfix" src="system/modules/om_backend/assets/icons/find.png" width="16" height="16" alt="'.$GLOBALS['TL_LANG']['om_backend']['id_search'].'"></a>';
     
         // add button - update database
         $strToolbar .= '<a class="button" href="contao/main.php?do=repository_manager&amp;update=database" title="'.$GLOBALS['TL_LANG']['om_backend']['update_database'].'"><img class="pngfix" src="system/modules/repository/themes/default/images/dbcheck16.png" width="16" height="16" alt="'.$GLOBALS['TL_LANG']['om_backend']['update_database'].'"></a>';
