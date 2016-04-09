@@ -1,7 +1,7 @@
 /**
  * Contao module om_backend
  * 
- * @copyright OMOS.de 2015 <http://www.omos.de>
+ * @copyright OMOS.de 2016 <http://www.omos.de>
  * @author    René Fehrmann <rene.fehrmann@omos.de>
  * @package   om_backend
  * @link      http://www.omos.de
@@ -212,7 +212,7 @@ body.om_toolbar #toolbarHorizontal:after {
     clear: both;
     display: block;
     visibility: hidden;
-    height: 0px;
+    height: 0;
 }
 body.om_toolbar #toolbarHorizontal h1 {
     margin: 1px;

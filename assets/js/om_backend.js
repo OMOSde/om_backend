@@ -47,7 +47,7 @@ function onDomReady()
 function calculateFixedToolbar()
 {
     // calculate fixed toolbar position
-    pos = ($$('html').getSize()[0].x - $$('div#container').getSize()[0].x) / 2 + $$('div#container').getSize()[0].x + 10;    
+    var pos = ($$('html').getSize()[0].x - $$('div#container').getSize()[0].x) / 2 + $$('div#container').getSize()[0].x + 10;
     
     // fixed ??        
     if (window.getScroll().y >= $$('div#container').getPosition()[0].y)
@@ -73,10 +73,10 @@ function keyDown(event)
         $$('.om_viewInfoOnShift .tl_listing .tl_right, .om_viewInfoOnShift .tl_listing .tl_right_nowrap, .om_viewInfoOnShift .tl_content .tl_content_right').each(function(elem) {
             var id = 0;
             elem.getElements('a').some(function(link) {
-                pos = link.get('href').indexOf('&id=');
+                var pos = link.get('href').indexOf('&id=');
                 if (pos > 0)
                 {
-                    part = link.get('href').substr(pos + 4);
+                    var part = link.get('href').substr(pos + 4);
                     id = part.substr(0, part.indexOf('&'));
 
                     return true;
@@ -110,7 +110,7 @@ function keyUp(event)
     {
         isKeyDown = false;
         $$('.om_viewInfoOnShift .tl_listing .tl_left, .om_viewInfoOnShift .tl_listing .tl_file_list, .om_viewInfoOnShift .tl_content .tl_content_left, .om_viewInfoOnShift .tl_content .cte_type').each(function(elem) {
-            pos = elem.get('html').indexOf('<span style="color:#b3b3b3;padding-left:3px">[ID:');
+            var pos = elem.get('html').indexOf('<span style="color:#b3b3b3;padding-left:3px">[ID:');
             if (pos > 0)
             {
                 elem.set('html', elem.get('html').substr(0, pos));

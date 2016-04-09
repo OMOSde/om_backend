@@ -31,6 +31,11 @@ class OmBackendHooks extends \Backend
      */
     public function myGetContentElement($objElement, $strBuffer)
     {
+        if ($objElement)
+        {
+            return $strBuffer;
+        }
+
         return $strBuffer;
     }
 
@@ -69,8 +74,8 @@ class OmBackendHooks extends \Backend
                         $strElements .= '<div class="group">';
                         foreach ($group as $key => $element)
                         {
-                            $strPath = '/system/modules/om_backend/assets/buttons/';
-                            $strFile = (is_file(TL_ROOT.$strPath.$key.'.png')) ? $strPath.$key.'.png' : $strPath.'wildcard.png';
+                            //$strPath = '/system/modules/om_backend/assets/buttons/';
+                            //$strFile = (is_file(TL_ROOT.$strPath.$key.'.png')) ? $strPath.$key.'.png' : $strPath.'wildcard.png';
                             $strElements .= '<div class="button" data-value="'.$key.'" title="'.$GLOBALS['TL_LANG']['CTE'][$key][0].'"><div class="images '.$key.'"></div></div>';
                         }
                         $strElements .= '</div>';
@@ -182,6 +187,9 @@ class OmBackendHooks extends \Backend
         // generate save buttons
         if (strpos($strContent, 'class="tl_submit_container"') !== false && strpos($strContent, 'name="save"') !== FALSE)
         {
+            // declare variables
+            $arrButtons = null;
+
             // button save
             if (strpos($strContent, 'name="save"') !== FALSE)
             {
@@ -235,6 +243,9 @@ class OmBackendHooks extends \Backend
         // edit multiple buttons
         if (strpos($strContent, 'class="tl_submit_container"') !== false && strpos($strContent, 'name="edit"') !== FALSE)
         {
+            // declare variables
+            $arrButtons = null;
+
             // html button names
             $arrButtonNames = array('delete', 'cut', 'copy', 'override', 'edit', 'alias');
         
@@ -295,6 +306,10 @@ class OmBackendHooks extends \Backend
      */
     protected function generateBackendLinks()
     {
+        // declare variables
+        $arrGroups = null;
+        $strReturn = '';
+
         // get all links
         $objLinks = $this->Database->prepare("SELECT * FROM tl_om_backend_links WHERE language=? AND published=1")->execute($this->User->language);        
         while ($objLinks->next())

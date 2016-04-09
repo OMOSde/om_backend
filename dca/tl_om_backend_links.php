@@ -253,8 +253,7 @@ class tl_om_backend_links extends Backend
         }
 
         // Update the database
-        $this->Database->prepare("UPDATE tl_om_backend_links SET tstamp=". time() .", published='" . ($blnVisible ? 1 : '') . "' WHERE id=?")
-            ->execute($intId);
+        $this->Database->prepare("UPDATE tl_om_backend_links SET tstamp=". time() .", published='" . ($blnVisible ? 1 : '') . "' WHERE id=?")->execute($intId);
 
         $objVersions->create();
         $this->log('A new version of record "tl_om_backend_links.id='.$intId.'" has been created'.$this->getParentEntries('tl_om_backend_links', $intId), __METHOD__, TL_GENERAL);

@@ -34,6 +34,9 @@ class OmBackendIdSearch extends \BackendModule
      */
     protected function compile()
     {
+        // declare variables
+        $arrGroups = null;
+
         // get tables from database
         $arrTables = $this->Database->listTables();
 
@@ -78,7 +81,7 @@ class OmBackendIdSearch extends \BackendModule
             if ($objData->numRows)
             {
                 // redirect
-                \System::redirect('contao/main.php?do='.$arrSelected[0].'&table='.$arrSelected[1].'&act=edit&id='.$objData->id.'&rt='.$_SESSION['REQUEST_TOKEN']);
+                \Controller::redirect('contao/main.php?do='.$arrSelected[0].'&table='.$arrSelected[1].'&act=edit&id='.$objData->id.'&rt='.$_SESSION['REQUEST_TOKEN']);
             } else {
                 // error
                 $this->Template->id       = \Input::post('id');
